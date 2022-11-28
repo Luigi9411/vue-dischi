@@ -47,9 +47,11 @@ export default {
     }
     .author{
       line-height: .1em;
+      color: #757E83;
     }
     .year{
       line-height: .2em;
+      color: #757E83;
     }
   }
 </style>
