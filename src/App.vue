@@ -1,8 +1,13 @@
 <template>
   <div>
-    <PageHeader />
-    <PageMain />
-    <PageFooter />
+    <PageHeader
+      :genres-list="genresList"
+      @changedGenre="genreChange"
+    />
+    <PageMain
+      :genre-filter="genreFilter"
+      @genresReady="getGenrestList"
+    />
   </div>
 </template>
 
@@ -12,13 +17,24 @@ import PageHeader from '@/components/PageHeader.vue';
 
 import PageMain from '@/components/PageMain.vue';
 
-import PageFooter from '@/components/PageFooter.vue';
-
 export default {
   components: {
     PageHeader,
     PageMain,
-    PageFooter,
+  },
+  data() {
+    return {
+      genresList: [],
+      genreFilter: 'all',
+    };
+  },
+  methods: {
+    getGenrestList(genresList) {
+      this.genresList = genresList;
+    },
+    genreChange(genreFilter) {
+      this.genreFilter = genreFilter;
+    },
   },
 };
 </script>
